@@ -3,30 +3,15 @@
 #include "instruction.h"
 using namespace std;
 
-class operand
+class Operand
 {
 public:
-	operand(bool, int v);
-	const int getType();
-	const int getValue();
-	~operand();
+	Operand(bool, int v);
+	 int getValue() const;
+	 int getType() const;
+	~Operand();
 private:
-	bool type; //if type = 0 operand is var (memory address) if type=1 then this is imm
+	bool type; //if type = 0 Operand is var (memory address) if type=1 then this is imm
 	int value;
 };
 
-operand::operand(bool t, int v)
-{
-	type = t;
-	value = v;
-}
-const int operand::getType() {
-	return type;
-}
-const int operand::getValue() {
-	return value;
-}
-
-operand::~operand()
-{
-}

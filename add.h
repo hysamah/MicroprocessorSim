@@ -1,43 +1,17 @@
 #pragma once
-#include "instruction.h"
+#include "Instruction.h"
 #include <iostream>
 using namespace std;
 
-class add : protected instruction
+class ADD : protected Instruction
 {
 public:
-	add(vector <int>);
-	int excute(int, datamem &);
+	ADD(vector <Operand>);
+	int excute(int, DataMem &);
 	void print();
-	~add();
+	~ADD();
 
 private:
 
 };
 
-add::add(vector <int> rs)
-{
-	for (int x : rs)
-	{
-		operand q(0, x);
-		op.push_back(q);
-	}
-}
-
-void add::print() {
-	
-	cout << "ADD ";
-	for (operand o : op)
-		cout << o.getValue() << " ";
-	cout << endl;
-}
-
-int add::excute(int pc, datamem &data) {
-
-	data.set(op.at(2).getValue()) = data.get(op.at(1).getValue()) + data.get(op.at(0).getValue());
-	return pc + 1;
-}
-
-add::~add()
-{
-}

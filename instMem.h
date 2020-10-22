@@ -1,42 +1,51 @@
 #pragma once
-#include "instruction.h"
+#include "Instruction.h"
 #include <iostream>
 using namespace std;
 
-class instMem
+class InstMem
 {
 public:
-	instMem();
-	instruction *getInst(int);
-	void allocate(instruction*);
+	InstMem();
+	Instruction *getInst(int);
+	void allocate(Instruction&);
 	void print();
-	~instMem();
+	~InstMem();
 
 private:
-	vector<instruction*> Inst;
+	Instruction** Inst;
 	int maxPc = -1;
+	int allocated;
 };
 
-instMem::instMem()
+InstMem::InstMem()
 {
+	this->Inst = new Instruction*[1024];
+    this->allocated = 0;
 }
 
-instruction* instMem::getInst(int p) {
+Instruction* InstMem::getInst(int p) {
 	if(p<=maxPc)
 		return Inst[p];
 	else cout << "Invalid PC value! \n";
 
 }
-void instMem::allocate(instruction * newInst) {
-	Inst.push_back(newInst);
-	maxPc++;
+void InstMem::allocate(Instruction& newInst) {
+	if(this->allocated == 1024)
+        throw overflow_error("Unable to allocate new space for a new instruction, size reached 1024");
+    //cout << "SIZ: " << inst.pars.size() << endl;
+    this->Inst[this->allocated] = &inst;
+    this->allocated++;
 }
 
-void instMem::print() {
-	for (instruction *x : Inst) {
+void InstMem::print() {
+	for (Instruction *x : Inst) {
 		x->print();
 	}
 }
-instMem::~instMem()
-{
+InstMem::~InstMem(){
+    for(int i = 0; i < this->allocated; i++){
+        delete this->Inst[i];
+    }
+    delete[] this->Inst;
 }

@@ -1,20 +1,23 @@
 #pragma once
-class datamem
+#include <map>
+#include <string>
+#include<iostream>
+
+using namespace std;
+
+class DataMem
 {
 public:
-	datamem();
-	float get(int);
-	float set(int);
-	~datamem();
+	DataMem();
+	int getVar(int) ;
+	void setVar(int, int);
+	void print();
+	void allocate(int var);
+	~DataMem();
 
 private:
-
+	int ** Data;
+	int allocated;
+	bool Init[1024];
+	map<int,int> VarToLoc;
 };
-
-datamem::datamem()
-{
-}
-
-datamem::~datamem()
-{
-}

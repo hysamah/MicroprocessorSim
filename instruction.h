@@ -1,29 +1,19 @@
 #pragma once
 #include <vector>
-#include "operand.h"
-#include "datamem.h"
+#include "Operand.h"
+#include "DataMem.h"
 
 using namespace std;
 
-class instruction 
+class Instruction 
 {
 public:
-	instruction ();
+	Instruction(vector<Operand>);
 	virtual void print()=0;
-	virtual int excute(int, datamem)=0;
-	~instruction ();
-	vector <operand> op;
+	virtual int excute(int, DataMem&)=0;
+	~Instruction ();
 	
-private:
-	
+protected:
+	vector <Operand> op;
 
 };
-
-instruction ::instruction ()
-{
-
-}
-
-instruction ::~instruction ()
-{
-}

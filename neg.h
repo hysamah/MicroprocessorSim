@@ -1,43 +1,42 @@
 #pragma once
-#include "instruction.h"
+#include "Instruction.h"
 #include <iostream>
 using namespace std;
 
-class neg : protected instruction
+class NEG : protected Instruction
 {
 public:
-	neg(vector <int>);
-	int excute(int, datamem &);
+	NEG(vector<Operand>);
+	int excute(int, DataMem &);
 	void print();
-	~neg();
+	~NEG();
 
 private:
 
 };
 
-neg::neg(vector <int> rs)
+NEG::NEG(vector<Operand> rs): Instruction(rs)
 {
-	for (int x : rs)
-	{
-		operand q(0, x);
-		op.push_back(q);
-	}
+	if(rs.size() != 2)
+        throw invalid_argument("Invalid parameter list, NEG instruction takes exactly 2 parameters");
+	if(rs[1].getType()&&rs[0].getType())
+        throw invalid_argument("Invalid parameter list, both paramaters in NEG must be variables");
 }
 
-void neg::print() {
+void NEG::print() {
 
 	cout << "NEG ";
-	for (operand o : op)
+	for (Operand o : op)
 		cout << o.getValue() << " ";
 	cout << endl;
 }
 
-int neg::excute(int pc, datamem &data) {
-
-	data.set(op.at(1).getValue()) = -data.get(op.at(0).getValue());
+int NEG::excute(int pc, DataMem &data) {
+	int a0 = data.getVar(op.at(0).getValue());
+	data.setVar(op.at(1).getValue(), -1*a0);
 	return pc + 1;
 }
 
-neg::~neg()
+NEG::~NEG()
 {
 }
