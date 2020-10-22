@@ -8,7 +8,7 @@ class JPA : protected Instruction
 {
 public:
 	JPA(vector <Operand>);
-	int excute(int, DataMem &);
+	int excute(int, DataMem &, bool& running);
 	void print();
 	~JPA();
 

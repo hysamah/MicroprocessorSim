@@ -10,7 +10,7 @@ JP0::JP0(vector<Operand> rs)
 }
 
 
-int JP0::execute(int pc, DataMem& dm){
+int JP0::execute(int pc, DataMem& dm, bool& running){
     int a0 = dm.getVar(op[0].getValue());
     int a1 = op[1].getValue();
     

@@ -5,7 +5,7 @@ MUL::MUL(vector <Operand> rs): Instruction(rs)
 	if(rs.size() != 3)
         throw invalid_argument("Invalid parameter list, MUL instruction takes exactly 3 parameters");
     if(rs[0].getType()||rs[1].getType()||rs[2].getType())
-        throw invalid_argument("Invalid parameter list, both paramaters in NEG must be variables");    
+        throw invalid_argument("Invalid parameter list, all paramaters in MUL must be variables");    
 }
 
 void MUL::print() {
@@ -16,7 +16,7 @@ void MUL::print() {
 	cout << endl;
 }
 
-int MUL::excute(int pc, DataMem &data) {
+int MUL::excute(int pc, DataMem &data, bool& running) {
 
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
