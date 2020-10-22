@@ -16,8 +16,8 @@ void ADD::print() {
 }
 
 int ADD::excute(int pc, DataMem &data) {
-	float a0 = data.getVar(op.at(0).getValue());
-	float a1 = data.getVar(op.at(1).getValue());
+	int a0 = data.getVar(op.at(0).getValue());
+	int a1 = data.getVar(op.at(1).getValue());
 
 	data.setVar(op.at(2).getValue(), a0 + a1);
 	return pc + 1;

@@ -1,6 +1,5 @@
 #pragma once
 #include <vector>
-#include "instruction.h"
 using namespace std;
 
 class Operand
