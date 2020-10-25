@@ -10,7 +10,7 @@ class Instruction
 public:
 	Instruction(vector<Operand>);
 	virtual void print()=0;
-	virtual int excute(int, DataMem&)=0;
+	virtual int excute(int, DataMem&, bool& )=0;
 	~Instruction ();
 	
 protected:

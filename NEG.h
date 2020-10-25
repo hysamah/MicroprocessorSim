@@ -7,7 +7,7 @@ class NEG : protected Instruction
 {
 public:
 	NEG(vector<Operand>);
-	int excute(int, DataMem &);
+	int excute(int, DataMem &, bool& running);
 	void print();
 	~NEG();
 

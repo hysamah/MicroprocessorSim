@@ -7,7 +7,7 @@ class MUL : protected Instruction
 {
 public:
 	MUL(vector <Operand>);
-	int excute(int, DataMem &);
+	int excute(int, DataMem &, bool& running);
 	void print();
 	~MUL();
 

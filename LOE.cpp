@@ -16,7 +16,7 @@ void LOE::print() {
 	cout << endl;
 }
 
-int LOE::excute(int pc, DataMem &data) {
+int LOE::excute(int pc, DataMem &data, bool& running) {
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
 	data.setVar(op.at(2).getValue(), a0<=a1 );

@@ -15,7 +15,7 @@ void JPA::print() {
 	cout << endl;
 }
 
-int JPA::excute(int pc, DataMem &data) {
+int JPA::excute(int pc, DataMem &data, bool& running) {
 	int jpc;
 	jpc=data.getVar(op.at(0).getValue());
 
