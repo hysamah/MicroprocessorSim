@@ -18,7 +18,7 @@ void InstMem::allocate(Instruction& newInst) {
 	if (this->allocated == 1024)
 		throw overflow_error("Unable to allocate new space for a new instruction, size reached 1024");
 	//cout << "SIZ: " << inst.pars.size() << endl;
-	this->Inst[this->allocated] = &inst;
+	this->Inst[this->allocated] = &Inst;
 	this->allocated++;
 }
 
