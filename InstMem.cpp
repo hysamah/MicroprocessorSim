@@ -25,6 +25,7 @@ void InstMem::allocate(Instruction& newInst) {
 }
 
 void InstMem::print() {
+	cout << "Printing All instructions in Instruction Memory \n";
 	for (int i = 0; i < this->allocated; i++)
 	{
 		Inst[i]->print();
