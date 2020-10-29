@@ -16,7 +16,7 @@ void ADD::print() {
 	cout << endl;
 }
 
-int ADD::excute(int pc, DataMem &data, , bool& running) {
+int ADD::excute(int pc, DataMem &data, bool& running) {
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
 
