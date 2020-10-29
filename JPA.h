@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-class JPA : protected Instruction
+class JPA : public Instruction
 {
 public:
 	JPA(vector <Operand>);

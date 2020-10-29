@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-class MUL : protected Instruction
+class MUL : public Instruction
 {
 public:
 	MUL(vector <Operand>);

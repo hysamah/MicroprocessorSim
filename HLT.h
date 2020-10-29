@@ -9,6 +9,7 @@ public:
     HLT(vector<Operand>);
     //Assigns a constant value to a variable
     int excute(int pc, DataMem& dm, bool& running);
+	void print();
     ~HLT();
 
 };

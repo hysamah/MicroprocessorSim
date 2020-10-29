@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-class NEG : protected Instruction
+class NEG : public Instruction
 {
 public:
 	NEG(vector<Operand>);

@@ -3,11 +3,11 @@
 #include <iostream>
 using namespace std;
 
-class ADD : protected Instruction
+class ADD : public Instruction
 {
 public:
 	ADD(vector <Operand>);
-	int excute(int, DataMem &, bool& running);
+	int excute(int, DataMem&, bool& running);
 	void print();
 	~ADD();
 

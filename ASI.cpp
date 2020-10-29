@@ -9,12 +9,18 @@ ASI::ASI(vector<Operand> rs)
 }
 
 
-int ASI::execute(int pc, DataMem& dm, bool& running){
+int ASI::excute(int pc, DataMem& dm, bool& running){
     int a0 = op[0].getValue();
     dm.setVar(op[1].getValue(), a0);
     return pc + 1;
 }
+void ASI::print() {
 
+	cout << "ASI ";
+	for (Operand o : op)
+		cout << o.getValue() << " ";
+	cout << endl;
+}
 
 ASI::~ASI(){
 }

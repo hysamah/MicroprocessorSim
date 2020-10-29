@@ -8,7 +8,8 @@ class ASI : public Instruction
 public:
     ASI(vector<Operand>);
     //Assigns a constant value to a variable
-    int execute(int pc, DataMem& dm, bool& running);
+    int excute(int pc, DataMem& dm, bool& running);
+	void print();
     ~ASI();
 
 };

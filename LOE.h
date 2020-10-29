@@ -3,7 +3,7 @@
 #include "Instruction.h"
 using namespace std;
 
-class LOE : protected Instruction
+class LOE : public Instruction
 {
 
 public:

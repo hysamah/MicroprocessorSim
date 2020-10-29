@@ -12,6 +12,10 @@ int HLT::excute(int pc, DataMem& dm, bool& running){
     return pc + 1;
 }
 
+void HLT::print() {
 
+	cout << "HLT ";
+	cout << endl;
+}
 HLT::~HLT(){
 }
