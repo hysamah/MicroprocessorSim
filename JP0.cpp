@@ -5,7 +5,7 @@ JP0::JP0(vector<Operand> rs)
     if(rs.size() != 2)
         throw invalid_argument("Invalid parameter list, JP0 instruction takes exactly 2 parameters");
 
-    if(rs[0].getType()||rs[1].getType()||rs[2].getType())
+    if(rs[0].getType()||rs[1].getType())
         throw invalid_argument("Invalid parameter list, all paramaters in JP0 must be variables"); 
 }
 

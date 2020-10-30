@@ -17,7 +17,7 @@ void JPA::print() {
 
 int JPA::excute(int pc, DataMem &data, bool& running) {
 	int jpc;
-	jpc=data.getVar(op.at(0).getValue());
+	jpc=op.at(0).getValue();
 
 	return jpc;
 }

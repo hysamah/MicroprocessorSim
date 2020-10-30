@@ -16,7 +16,7 @@ public:
 	~DataMem();
 
 private:
-	int ** Data;
+	int * Data;
 	int allocated;
 	bool Init[1024];
 	map<int,int> VarToLoc;

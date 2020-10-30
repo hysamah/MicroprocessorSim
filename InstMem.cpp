@@ -11,7 +11,7 @@ InstMem::InstMem()
 }
 
 Instruction* InstMem::getInst(int p) {
-	if (p <= maxPc)
+	if (p <= this->allocated)
 		return Inst[p];
 	else cout << "Invalid PC value! \n";
 
