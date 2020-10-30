@@ -5,6 +5,10 @@
 
 using namespace std;
 
+#ifndef DATAMEM_H
+#define DATAMEM_H
+
+
 class DataMem
 {
 public:
@@ -21,3 +25,4 @@ private:
 	bool Init[1024];
 	map<int,int> VarToLoc;
 };
+#endif // !DATAMEM_H

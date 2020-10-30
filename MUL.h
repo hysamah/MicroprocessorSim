@@ -1,4 +1,8 @@
 #pragma once
+#ifndef MUL_H
+#define MIL_H
+
+
 #include "Instruction.h"
 #include <iostream>
 using namespace std;
@@ -14,4 +18,4 @@ public:
 private:
 
 };
-
+#endif // !MUL_H

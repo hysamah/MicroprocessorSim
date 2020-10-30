@@ -1,4 +1,8 @@
 #pragma once
+#ifndef ADD_H
+#define ADD_H
+
+
 #include "Instruction.h"
 #include <iostream>
 using namespace std;
@@ -15,3 +19,4 @@ private:
 
 };
 
+#endif // !ADD_H

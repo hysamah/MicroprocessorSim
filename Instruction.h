@@ -1,4 +1,9 @@
 #pragma once
+#ifndef INSTRUCTION_H
+#define INSTRUCTION_H
+
+
+
 #include <vector>
 #include "Operand.h"
 #include "DataMem.h"
@@ -17,3 +22,4 @@ protected:
 	vector <Operand> op;
 
 };
+#endif // !INSTRUCTION_H

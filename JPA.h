@@ -1,4 +1,8 @@
 #pragma once
+#ifndef JPA_H
+#define JPA_H
+
+
 #include "Instruction.h"
 #include <vector>
 #include <iostream>
@@ -15,4 +19,5 @@ public:
 private:
 
 };
+#endif // !JPA_H
 

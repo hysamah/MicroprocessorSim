@@ -12,6 +12,10 @@
 #include <iostream>
 using namespace std;
 
+#ifndef INSTMEM_H
+#define INSTMEM_H
+
+
 class InstMem
 {
 public:
@@ -29,3 +33,4 @@ private:
 };
 
 
+#endif // !INSTMEM_H
