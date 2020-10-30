@@ -26,7 +26,7 @@ void main() {
 		pc = Inst->excute(pc, dta, run);
 		cout << "Done excuting instruction" << endl;
 		Inst->print();
-		//dta.print();
+		dta.print();
 	}
 	
 
