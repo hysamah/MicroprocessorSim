@@ -1,4 +1,3 @@
-#pragma once
 #ifndef JPA_H
 #define JPA_H
 

@@ -17,7 +17,10 @@ void JPA::print() {
 
 int JPA::excute(int pc, DataMem &data, bool& running) {
 	int jpc;
-	jpc=op.at(0).getValue();
+	jpc = op[0].getValue();
+
+	cout << "Instruction #"<<pc << " will jump to position " <<jpc<<endl;
+
 
 	return jpc;
 }

@@ -4,6 +4,10 @@
         "iostream": "cpp",
         "stdexcept": "cpp",
         "map": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "ostream": "cpp",
+        "iosfwd": "cpp",
+        "system_error": "cpp",
+        "xlocale": "cpp"
     }
 }

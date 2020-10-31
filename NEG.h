@@ -1,4 +1,3 @@
-#pragma once
 #ifndef NEG_H
 #define NEG_H
 

@@ -19,6 +19,11 @@ void NEG::print() {
 int NEG::excute(int pc, DataMem &data, bool& running) {
 	int a0 = data.getVar(op.at(0).getValue());
 	data.setVar(op.at(1).getValue(), -1*a0);
+	
+	cout <<  "Instruction #"<<pc << " set the data at address " <<op.at(1).getValue()<<
+	" value: "<< a0 << " to the negation: "<< -1*a0 << endl;
+
+
 	return pc + 1;
 }
 

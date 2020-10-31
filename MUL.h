@@ -1,4 +1,3 @@
-#pragma once
 #ifndef MUL_H
 #define MIL_H
 

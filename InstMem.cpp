@@ -11,15 +11,16 @@ InstMem::InstMem()
 }
 
 Instruction* InstMem::getInst(int p) {
-	if (p <= this->allocated)
+	if (p <= this->allocated){
+		cout << "Getting instruction #" << p<<endl;
 		return Inst[p];
-	else cout << "Invalid PC value! \n";
+	}
+	else throw runtime_error("Invalid PC value");
 
 }
 void InstMem::allocate(Instruction& newInst) {
 	if (this->allocated == 1024)
 		throw overflow_error("Unable to allocate new space for a new instruction, size reached 1024");
-	//cout << "SIZ: " << inst.pars.size() << endl;
 	this->Inst[this->allocated] = &newInst;
 	this->allocated++;
 }
@@ -31,65 +32,48 @@ void InstMem::print() {
 		Inst[i]->print();
 	}
 	
-	/*for (Instruction *x : Inst) {
-		x->print();
-	}*/
 }
 
 
-
-
-ifstream & operator >> (ifstream& file, InstMem& f)
+ifstream & operator >> (ifstream& file, InstMem& instMem)
 {
 	string data;
-	string tmp;
-	while (!file.eof()) {
-		getline(file, tmp);
-		data += tmp + '\n';
-	}
-	vector <vector<char *>> instructions;
-	vector <char *> k;
-	char **C, **F;
-	C = new char *;
-	F = new char*;
-	char* tok;
-	char *m;
-	tok = strtok_s(&data[0], "\n", C);
-	while (tok != NULL) {
-		m = strtok_s(tok, " ", F);
-		while (m != NULL) {
-			k.push_back(m);
-			m = strtok_s(NULL, " ", F);
-		}
-		instructions.push_back(k);
-		k.clear();
-		tok = strtok_s(NULL, "\n", C);
-	}
+	getline(file, data);
+
+
+	int l = 0, r;
+    vector<string> list;
+    while(l < data.length() && data[l] == ' ' || data[l] == '\t')l++;
+    r = l;
+    while(l < data.length()){
+        while(r < data.length() && data[r] != ' ' && data[r] != '\t' && data[r] != ',') r++;
+        list.push_back(data.substr(l, r - l));
+        while(r < data.length() && data[r] == ' ' || data[r] == '\t' || data[r] == ',') r++;
+        l = r;
+        if(list.size() > 4)
+            throw invalid_argument("Too many parameters in one line. Around: " + data);
+    }
+	
+
 
 	vector<Operand> OP;
-	enum names
-	{
-		adD = 68, neG = 71, asI = 73, jp0 = 48, jpA = 65, loE = 69, muL = 76, hlT = 84
-	};
 
-	for (vector<char *> s : instructions)
-	{
-		OP.clear();
-		for (int i = 1; i < s.capacity(); i++) {
-			if (string(s[i - 1]) == "ASI") {
-				Operand O(1, atoi(s[i]));
-				OP.push_back(O);
-			}
-			else {
-				Operand O(0, atoi(s[i]));
-				OP.push_back(O);
-			}
+
+	for (int i = 1; i < list.size(); i++) {
+		if (list[i - 1] == "ASI") {
+			Operand O(1, atoi(list[i].c_str()));
+			OP.push_back(O);
 		}
+		else {
+			Operand O(0, atoi(list[i].c_str()));
+			OP.push_back(O);
+		}
+	}
 
 
 		Instruction *InstPtr=nullptr;
 
-		switch (int(string(s[0]).back()))
+		switch (int(string(list[0]).back()))
 		{
 		case adD:
 		{
@@ -130,15 +114,16 @@ ifstream & operator >> (ifstream& file, InstMem& f)
 			cout << "invalid instruction" << endl;
 			break;
 		}
-		f.allocate(*InstPtr);
+		instMem.allocate(*InstPtr);
 
-	}
+	
 
 	return file;
 	
 }
 
 InstMem::~InstMem() {
+	cout << "Deleting the instruction memory" <<endl;
 	for (int i = 0; i < this->allocated; i++) {
 		delete this->Inst[i];
 	}

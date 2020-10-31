@@ -12,6 +12,10 @@ ASI::ASI(vector<Operand> rs)
 int ASI::excute(int pc, DataMem& dm, bool& running){
     int a0 = op[0].getValue();
     dm.setVar(op[1].getValue(), a0);
+
+    cout << "Instruction #"<<pc << " set the data at address " <<op[1].getValue()<<
+	 " with the data =  " <<a0<<endl;
+
     return pc + 1;
 }
 void ASI::print() {

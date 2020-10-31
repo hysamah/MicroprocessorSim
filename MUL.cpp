@@ -21,6 +21,11 @@ int MUL::excute(int pc, DataMem &data, bool& running) {
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
 	data.setVar(op.at(2).getValue(), a0*a1 );
+	
+	cout << "Instruction #"<<pc << " multiplied the data at address " <<op.at(0).getValue()<<
+	" value: "<< a0<< " with the data at address " <<op.at(1).getValue()<<
+	" value: "<< a1<< " Result = " << a0 * a1<< " saved at " <<op.at(2).getValue()<<endl;
+
 	return pc + 1;
 }
 

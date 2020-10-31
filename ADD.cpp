@@ -19,8 +19,14 @@ void ADD::print() {
 int ADD::excute(int pc, DataMem &data, bool& running) {
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
+	int a2 = op.at(2).getValue();
 
 	data.setVar(op.at(2).getValue(), a0 + a1);
+
+	cout << "Instruction #"<<pc << " added the data at address " <<op.at(0).getValue()<<
+	" value: "<< a0<< " with the data at address " <<op.at(1).getValue()<<
+	" value: "<< a1<< " Result = " << a0 + a1<< " saved at " <<a2<<endl;
+	
 	return pc + 1;
 }
 

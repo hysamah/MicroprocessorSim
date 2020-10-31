@@ -16,6 +16,10 @@ using namespace std;
 #define INSTMEM_H
 
 
+enum names
+{
+	adD = 68, neG = 71, asI = 73, jp0 = 48, jpA = 65, loE = 69, muL = 76, hlT = 84
+};
 class InstMem
 {
 public:

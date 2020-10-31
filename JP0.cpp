@@ -13,6 +13,9 @@ JP0::JP0(vector<Operand> rs)
 int JP0::excute(int pc, DataMem& dm, bool& running){
     int a0 = dm.getVar(op[0].getValue());
     int a1 = op[1].getValue();
+
+    string decision = (a0 == 0)? "jump" : "not jump";
+    cout << "Instruction #"<<pc << " will " <<decision<<" to position " <<a1<<endl;
     
     return (a0 == 0)? a1 : pc + 1;
 }

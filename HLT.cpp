@@ -9,6 +9,7 @@ HLT::HLT(vector<Operand> pars)
 
 int HLT::excute(int pc, DataMem& dm, bool& running){
     running = 0;
+    cout << "Excution stopped at instuction #"<<pc<<endl;
     return pc + 1;
 }
 

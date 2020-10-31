@@ -21,6 +21,11 @@ int LOE::excute(int pc, DataMem &data, bool& running) {
 	int a1 = data.getVar(op.at(1).getValue());
 	data.setVar(op.at(2).getValue(), a0<=a1 );
 
+	cout << "Instruction #"<<pc << " set the data at address " <<op.at(2).getValue()<<
+	" with 1 if the data at address " <<op.at(0).getValue()<<
+	" value: "<< a0<< " is less than the data at address " << op.at(1).getValue()<< 
+	" value: "<< a1<< endl;
+
 	return pc+1;
 }
 

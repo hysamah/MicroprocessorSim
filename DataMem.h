@@ -23,6 +23,5 @@ private:
 	int * Data;
 	int allocated;
 	bool Init[1024];
-	map<int,int> VarToLoc;
 };
 #endif // !DATAMEM_H
