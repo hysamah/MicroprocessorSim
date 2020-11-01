@@ -1,6 +1,6 @@
 #include "MUL.h"
 
-MUL::MUL(vector <Operand> rs): Instruction(rs)
+MUL::MUL(vector <Operand> rs): Instruction(rs) //construction and parameter validation
 {
 	if(rs.size() != 3)
         throw invalid_argument("Invalid parameter list, MUL instruction takes exactly 3 parameters");
@@ -8,7 +8,8 @@ MUL::MUL(vector <Operand> rs): Instruction(rs)
         throw invalid_argument("Invalid parameter list, all paramaters in MUL must be variables");    
 }
 
-void MUL::print() {
+void MUL::print() //function to print the instruction
+{
 
 	cout << "MUL ";
 	for (Operand o : op)
@@ -16,7 +17,8 @@ void MUL::print() {
 	cout << endl;
 }
 
-int MUL::excute(int pc, DataMem &data, bool& running) {
+int MUL::excute(int pc, DataMem &data, bool& running) //execution function for MUL
+{
 
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());

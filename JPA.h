@@ -6,7 +6,7 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-
+//derived functionn from instruction class for JPA
 class JPA : public Instruction
 {
 public:

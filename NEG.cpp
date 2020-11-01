@@ -1,6 +1,6 @@
 #include "NEG.h"
 
-NEG::NEG(vector<Operand> rs): Instruction(rs)
+NEG::NEG(vector<Operand> rs): Instruction(rs) //construction and parameter validation
 {
 	if(rs.size() != 2)
         throw invalid_argument("Invalid parameter list, NEG instruction takes exactly 2 parameters");
@@ -8,7 +8,8 @@ NEG::NEG(vector<Operand> rs): Instruction(rs)
         throw invalid_argument("Invalid parameter list, both paramaters in NEG must be variables");
 }
 
-void NEG::print() {
+void NEG::print() //function to print the instruction
+{
 
 	cout << "NEG ";
 	for (Operand o : op)
@@ -16,7 +17,8 @@ void NEG::print() {
 	cout << endl;
 }
 
-int NEG::excute(int pc, DataMem &data, bool& running) {
+int NEG::excute(int pc, DataMem &data, bool& running) //execution function for NEG
+{
 	int a0 = data.getVar(op.at(0).getValue());
 	data.setVar(op.at(1).getValue(), -1*a0);
 	

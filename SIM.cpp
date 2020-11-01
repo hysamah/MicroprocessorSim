@@ -1,6 +1,7 @@
 #include "SIM.h"
 
-SIM::SIM(const string & name){
+SIM::SIM(const string & name) //contructor that initialises the instruction memory and Program Counter 
+{
 	this->program_name = name;
 	this->file.open(program_name);
 	this->run=1;
@@ -12,13 +13,22 @@ SIM::SIM(const string & name){
 	
 }
 
-void SIM::Run(){
+void SIM::Run() //running the simulator 
+{
 	Instruction *Inst = nullptr;
-	while (this->run) {
-		Inst = this->instMem.getInst(pc);
-		this->pc = Inst->excute(this->pc, this->dataMem, this->run);
-		cout << "Done excuting instruction" << endl<< endl;
+	while (this->run) //keep the program running while the value run is true (ie; no HLT instruction called)
+	{ 
+		Inst = this->instMem.getInst(pc);  //get intruction to excute
+		this->pc = Inst->excute(this->pc, this->dataMem, this->run);  //execute instruction and update pc
+		cout << "Done excuting instruction" << endl<< endl; 
 	}
+}
+
+void SIM::print(string D, string I) //running the simulator 
+{
+	if (D == "y") this->dataMem.print();
+	if (I == "y") this->instMem.print();
+
 }
 
 SIM::~SIM(){

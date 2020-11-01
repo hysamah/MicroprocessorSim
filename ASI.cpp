@@ -1,5 +1,5 @@
 #include "ASI.h"
-ASI::ASI(vector<Operand> rs)
+ASI::ASI(vector<Operand> rs) //construction and parameter validation
     : Instruction(rs)
 {
     if(rs.size() != 2)
@@ -9,7 +9,8 @@ ASI::ASI(vector<Operand> rs)
 }
 
 
-int ASI::excute(int pc, DataMem& dm, bool& running){
+int ASI::excute(int pc, DataMem& dm, bool& running) //execution function for ASI
+{
     int a0 = op[0].getValue();
     dm.setVar(op[1].getValue(), a0);
 
@@ -18,7 +19,8 @@ int ASI::excute(int pc, DataMem& dm, bool& running){
 
     return pc + 1;
 }
-void ASI::print() {
+void ASI::print() //function to print the instruction
+{
 
 	cout << "ASI ";
 	for (Operand o : op)

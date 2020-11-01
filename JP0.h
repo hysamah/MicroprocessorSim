@@ -2,6 +2,8 @@
 #define JP0_H
 #include "Instruction.h"
 using namespace std;
+
+//derived functionn from instruction class for JP0
 class JP0 : public Instruction
 {
 

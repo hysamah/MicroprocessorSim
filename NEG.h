@@ -5,6 +5,7 @@
 #include <iostream>
 using namespace std;
 
+//derived functionn from instruction class for NEG
 class NEG : public Instruction
 {
 public:

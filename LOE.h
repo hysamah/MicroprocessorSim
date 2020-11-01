@@ -3,6 +3,7 @@
 #include "Instruction.h"
 using namespace std;
 
+//derived functionn from instruction class for LOE
 class LOE : public Instruction
 {
 

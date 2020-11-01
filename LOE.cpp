@@ -1,6 +1,6 @@
 #include "LOE.h"
 
-LOE::LOE(vector <Operand> rs): Instruction(rs)
+LOE::LOE(vector <Operand> rs): Instruction(rs) //construction and parameter validation
 {
 	if(rs.size() != 3)
         throw invalid_argument("Invalid parameter list, LOE instruction takes exactly 3 parameter");
@@ -8,7 +8,8 @@ LOE::LOE(vector <Operand> rs): Instruction(rs)
         throw invalid_argument("Invalid parameter list, all paramaters in LOE must be variables"); 
 }
 
-void LOE::print() {
+void LOE::print() //function to print the instruction
+{
 
 	cout << "LOE ";
 	for (Operand o : op)
@@ -16,7 +17,8 @@ void LOE::print() {
 	cout << endl;
 }
 
-int LOE::excute(int pc, DataMem &data, bool& running) {
+int LOE::excute(int pc, DataMem &data, bool& running) //execution function for LOE
+{
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
 	data.setVar(op.at(2).getValue(), a0<=a1 );

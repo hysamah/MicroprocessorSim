@@ -1,5 +1,5 @@
 #include "JP0.h"
-JP0::JP0(vector<Operand> rs)
+JP0::JP0(vector<Operand> rs) //construction and parameter validation
     : Instruction(rs)
 {
     if(rs.size() != 2)
@@ -10,7 +10,8 @@ JP0::JP0(vector<Operand> rs)
 }
 
 
-int JP0::excute(int pc, DataMem& dm, bool& running){
+int JP0::excute(int pc, DataMem& dm, bool& running)//execution function for JP0
+{
     int a0 = dm.getVar(op[0].getValue());
     int a1 = op[1].getValue();
 
@@ -20,7 +21,8 @@ int JP0::excute(int pc, DataMem& dm, bool& running){
     return (a0 == 0)? a1 : pc + 1;
 }
 
-void JP0::print() {
+void JP0::print() //function to print the instruction
+{
 
 	cout << "JP0 ";
 	for (Operand o : op)

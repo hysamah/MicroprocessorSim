@@ -2,6 +2,8 @@
 #define ASI_H
 #include "Instruction.h"
 using namespace std;
+
+//derived functionn from instruction class for ASI
 class ASI : public Instruction
 {
 

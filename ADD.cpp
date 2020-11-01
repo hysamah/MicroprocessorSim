@@ -1,6 +1,6 @@
 #include "ADD.h"
 
-ADD::ADD(vector <Operand> rs): Instruction(rs)
+ADD::ADD(vector <Operand> rs): Instruction(rs) //construction and parameter validation
 {
 	if(rs.size() != 3)
         throw invalid_argument("Invalid parameter list, ADD instruction takes exactly 3 parameters");
@@ -8,7 +8,8 @@ ADD::ADD(vector <Operand> rs): Instruction(rs)
         throw invalid_argument("Invalid parameter list, all paramaters in ADD must be variables"); 
 }
 
-void ADD::print() {
+void ADD::print() //function to print the instruction
+{
 	
 	cout << "ADD ";
 	for (Operand o : op)
@@ -16,7 +17,8 @@ void ADD::print() {
 	cout << endl;
 }
 
-int ADD::excute(int pc, DataMem &data, bool& running) {
+int ADD::excute(int pc, DataMem &data, bool& running) //execution function for add
+{
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
 	int a2 = op.at(2).getValue();

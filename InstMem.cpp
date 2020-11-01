@@ -12,7 +12,7 @@ InstMem::InstMem()
 
 Instruction* InstMem::getInst(int p) //getter function to retrieve an innstruction from a certain PC
 {
-	if (p <= this->allocated){
+	if (p < this->allocated){
 		cout << "Getting instruction #" << p<<endl;
 		return Inst[p];
 	}
@@ -29,11 +29,14 @@ void InstMem::allocate(Instruction& newInst) //allocating instructions at the bo
 
 void InstMem::print() //printing function that prints all intructions in the memory
 {
-	cout << "Printing All instructions in Instruction Memory \n";
+	cout << "-----------------------------------------\n";
+	cout << "** Instructions in Instruction Memory ** \nPC ==> Instruction\n";
 	for (int i = 0; i < this->allocated; i++)
 	{
+		cout << i << " ==> ";
 		Inst[i]->print();
 	}
+	cout << "-----------------------------------------\n";
 	
 }
 
