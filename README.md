@@ -1,11 +1,12 @@
 # MicroprocessorSim
-a microprocessor simulator using C++ and aheavily object oriented implementation 
+A microprocessor simulator using C++ and a heavily object oriented implementation 
 
 # Usage
-complie & run :
+Complie & run :
 - g++  *.cpp -o sim.exe 
 - .\sim.exe
-enter the file name that contains the program (instruction list)
+
+Enter the file name that contains the program (instruction list)
 
 # Supported instructions 
 ADD in1 in2 out1 ==> out1 := in1 + in2
