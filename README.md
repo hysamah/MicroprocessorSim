@@ -1,5 +1,5 @@
 # MicroprocessorSim
-A microprocessor simulator using C++ and aheavily object oriented implementation 
+A microprocessor simulator using C++ and a heavily object oriented implementation 
 
 # Usage
 complie & run "test.cpp"
