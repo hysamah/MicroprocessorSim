@@ -18,7 +18,21 @@ int main() {
 	
 	SIM simulation(program_name);
 	
-	simulation.Run();
+	try{
+		simulation.Run();
+	}
+	catch(runtime_error &ex){
+		cerr << "Runtime Error!!!\n"<<ex.what()<<endl;
+	}
+	catch(invalid_argument &ex){
+		cerr << "Invalid Argument Error!!!\n"<< ex.what()<<endl;
+	}
+	catch(overflow_error &ex){
+		cerr<< "Overflow Error!!!\n"<< ex.what() <<endl;
+	}
+	catch(...){
+		cerr<< "Exception Error!!!\n" <<endl;
+	}
 	if (printI=="y")
 		simulation.printInstructions();
 	if (printD=="y")
