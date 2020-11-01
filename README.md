@@ -2,7 +2,9 @@
 a microprocessor simulator using C++ and aheavily object oriented implementation 
 
 # Usage
-complie & run "test.cpp"
+complie & run :
+- g++  *.cpp -o sim.exe 
+- .\sim.exe
 enter the file name that contains the program (instruction list)
 
 # Supported instructions 
