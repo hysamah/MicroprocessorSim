@@ -5,6 +5,9 @@
 DataMem::DataMem()  //class constructor, allocated memory for 1024 data values
 {
     this->Data = new int[1024];
+    for (int i = 0; i<1024; i++) {
+        this->Init[i]=0;
+    } 
 }
 
 
@@ -30,7 +33,7 @@ void DataMem::print() //function to print the entire data memory
     
 
 	for (int i = 0; i<1024; i++) {
-		if (this->Init[i]) {
+		if (this->Init[i]==1) {
 			cout << i << " ==> ";
 			cout << this->Data[i] << endl;
 		}
