@@ -24,12 +24,16 @@ void SIM::Run() //running the simulator
 	}
 }
 
-void SIM::print(string D, string I) //running the simulator 
+void SIM::printInstructions() //Print then whole Instruction Memory 
 {
-	if (D == "y") this->dataMem.print();
-	if (I == "y") this->instMem.print();
+	this->instMem.print();
 
 }
 
+void SIM::printData() //Print then whole Data Memory 
+{
+	this->dataMem.print();
+
+}
 SIM::~SIM(){
 }

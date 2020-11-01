@@ -22,7 +22,9 @@ private:
 public:
 	SIM(const string & name); //contructor 
 	void Run(); //running order 
-	void print(string, string);
+	void printInstructions();
+    void printData();
+
 	~SIM();
 };
 
