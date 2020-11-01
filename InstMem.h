@@ -16,24 +16,24 @@ using namespace std;
 #define INSTMEM_H
 
 
-enum names
+enum names  //enumurating intruction names to instantiate correct instructions and add them to the Instruction memory
 {
 	adD = 68, neG = 71, asI = 73, jp0 = 48, jpA = 65, loE = 69, muL = 76, hlT = 84
 };
-class InstMem
+class InstMem  //class for the instruction memory 
 {
 public:
-	InstMem();
-	Instruction *getInst(int);
-	void allocate(Instruction&);
-	friend ifstream & operator >> (ifstream &, InstMem&);
-	void print();
+	InstMem(); //class constructor 
+	Instruction *getInst(int);  //getter for the instruction from the memory
+	void allocate(Instruction&); //function to allocate new instructions into the memory 
+	friend ifstream & operator >> (ifstream &, InstMem&);  //operator to read instructions from a file directly into the InstMem
+	void print(); //print function for the instruction memory
 	~InstMem();
 
 private:
 	Instruction** Inst;
 	int maxPc = -1;
-	int allocated;
+	int allocated; //numper of instructions in memory at any given time
 };
 
 

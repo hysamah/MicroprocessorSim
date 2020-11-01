@@ -8,21 +8,21 @@
 #include "InstMem.h"
 
 using namespace std;
-class SIM
+class SIM //class for simulating the microprocessor
 {
 private:
-	ifstream file;
-	string program_name;
-	InstMem instMem;
-	DataMem dataMem;
-	int pc;
-	bool run;
+	ifstream file;  //file that contains the instructions 
+	string program_name; 
+	InstMem instMem;  //intruction memory object for this simulator
+	DataMem dataMem; //data memory object for this simulator
+	int pc; //program counter 
+	bool run; 
 
 
 public:
-	SIM(const string & name);
-	void Run();
+	SIM(const string & name); //contructor 
+	void Run(); //running order 
 	~SIM();
 };
 
-#endif // !ADD_H
+#endif 

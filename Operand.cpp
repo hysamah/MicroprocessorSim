@@ -1,7 +1,7 @@
   
 #include "Operand.h"
 
-Operand::Operand(bool t, int v): type(t), value(v)
+Operand::Operand(bool t, int v): type(t), value(v) //operand constructor 
 {
 
 }

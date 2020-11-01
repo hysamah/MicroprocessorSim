@@ -6,26 +6,29 @@ using namespace std;
 
 InstMem::InstMem()
 {
-	this->Inst = new Instruction*[1024];
-	this->allocated = 0;
+	this->Inst = new Instruction*[1024];  //allocating space for the instructions of size 1024
+	this->allocated = 0; //the initial number of instructions=0
 }
 
-Instruction* InstMem::getInst(int p) {
+Instruction* InstMem::getInst(int p) //getter function to retrieve an innstruction from a certain PC
+{
 	if (p <= this->allocated){
 		cout << "Getting instruction #" << p<<endl;
 		return Inst[p];
 	}
-	else throw runtime_error("Invalid PC value");
+	else throw runtime_error("Invalid PC value");  //if PC value is out of the allocated range, throw this exception
 
 }
-void InstMem::allocate(Instruction& newInst) {
+void InstMem::allocate(Instruction& newInst) //allocating instructions at the bottom of the intruction memory
+{
 	if (this->allocated == 1024)
 		throw overflow_error("Unable to allocate new space for a new instruction, size reached 1024");
 	this->Inst[this->allocated] = &newInst;
 	this->allocated++;
 }
 
-void InstMem::print() {
+void InstMem::print() //printing function that prints all intructions in the memory
+{
 	cout << "Printing All instructions in Instruction Memory \n";
 	for (int i = 0; i < this->allocated; i++)
 	{
@@ -35,7 +38,7 @@ void InstMem::print() {
 }
 
 
-ifstream & operator >> (ifstream& file, InstMem& instMem)
+ifstream & operator >> (ifstream& file, InstMem& instMem)  //function to read, parse, and allocate instructions
 {
 	string data;
 	getline(file, data);
@@ -73,7 +76,7 @@ ifstream & operator >> (ifstream& file, InstMem& instMem)
 
 		Instruction *InstPtr=nullptr;
 
-		switch (int(string(list[0]).back()))
+		switch (int(string(list[0]).back())) //switch statement to determine the type of intruction and allocating it to instruction memory
 		{
 		case adD:
 		{

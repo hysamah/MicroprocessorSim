@@ -10,12 +10,12 @@
 
 using namespace std;
 
-class Instruction 
+class Instruction  //base class for all instructions 
 {
 public:
-	Instruction(vector<Operand>);
-	virtual void print()=0;
-	virtual int excute(int, DataMem&, bool& )=0;
+	Instruction(vector<Operand>); //constructor for intruction
+	virtual void print()=0; //virtual function for printing the instruction 
+	virtual int excute(int, DataMem&, bool& )=0; //virtual function for excuting the instruction 
 	~Instruction ();
 	
 protected:
