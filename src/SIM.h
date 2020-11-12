@@ -4,7 +4,9 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <thread>
 #include<string>
+#include <vector>
 #include "InstMem.h"
 
 using namespace std;
@@ -12,16 +14,18 @@ class SIM //class for simulating the microprocessor
 {
 private:
 	ifstream file;  //file that contains the instructions 
-	string program_name; 
-	InstMem instMem;  //intruction memory object for this simulator
+	int programs_num; 
+	InstMem* instMem;  //intruction memory object for this simulator
 	DataMem dataMem; //data memory object for this simulator
-	int pc; //program counter 
-	bool run; 
+	int* pc; //program counter 
+	bool* run; 
+	thread* threads;
 
 
 public:
-	SIM(const string & name); //contructor 
+	SIM(const vector<string>& ); //contructor 
 	void Run(); //running order 
+	void RunProgram(int i);
 	void printInstructions();
     void printData();
 

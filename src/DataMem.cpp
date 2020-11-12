@@ -10,7 +10,13 @@ DataMem::DataMem()  //class constructor, allocated memory for 1024 data values
     } 
 }
 
+void DataMem::lock(int index) {
+	this->mtx[index].lock();
+}
 
+void DataMem::unlock(int index) {
+	this->mtx[index].unlock();
+}
 
 void DataMem::setVar(int var, int val) //function to assign a certain value to a certain memory location
 {
