@@ -5,6 +5,7 @@
 
 
 #include <vector>
+#include <set>
 #include "Operand.h"
 #include "DataMem.h"
 
@@ -20,6 +21,7 @@ public:
 	
 protected:
 	vector <Operand> op;
+	set<int, greater<int>> locks;
 
 };
 #endif // !INSTRUCTION_H

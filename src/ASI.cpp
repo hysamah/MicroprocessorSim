@@ -11,18 +11,17 @@ ASI::ASI(vector<Operand> rs) //construction and parameter validation
 
 int ASI::excute(int pc, DataMem& dm, bool& running) //execution function for ASI
 {
-	//dm.lock(op[0].getValue());
-	dm.lock(op[1].getValue());
-
+	set<int, greater<int> >::iterator itr;
+	for (itr = locks.begin(); itr != locks.end(); ++itr)
+		dm.lock(*itr);
 	int a0 = op[0].getValue();
     dm.setVar(op[1].getValue(), a0);
 
     cout << "Instruction #"<<pc << " set the data at address " <<op[1].getValue()<<
 	 " with the data =  " <<a0<<endl;
 	
-	dm.unlock(op[1].getValue());
-	//dm.unlock(op[0].getValue());
-
+	for (itr = locks.begin(); itr != locks.end(); ++itr)
+		dm.unlock(*itr);
     return pc + 1;
 }
 void ASI::print() //function to print the instruction

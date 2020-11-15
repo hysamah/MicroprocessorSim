@@ -19,9 +19,10 @@ void ADD::print() //function to print the instruction
 
 int ADD::excute(int pc, DataMem &data, bool& running) //execution function for add
 {
-	data.lock(op[0].getValue());
-	data.lock(op[1].getValue());
-	data.lock(op[2].getValue());
+
+	set<int, greater<int> >::iterator itr;
+	for (itr=locks.begin(); itr!=locks.end(); ++itr)
+		data.lock(*itr);
 	
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
@@ -32,9 +33,9 @@ int ADD::excute(int pc, DataMem &data, bool& running) //execution function for a
 	cout << "Instruction #"<<pc << " added the data at address " <<op.at(0).getValue()<<
 	" value: "<< a0<< " with the data at address " <<op.at(1).getValue()<<
 	" value: "<< a1<< " Result = " << a0 + a1<< " saved at " <<a2<<endl;
-	data.unlock(op[2].getValue());
-	data.unlock(op[1].getValue());
-	data.unlock(op[0].getValue());
+
+	for (itr = locks.begin(); itr != locks.end(); ++itr)
+		data.unlock(*itr);
 	
 	return pc + 1;
 }

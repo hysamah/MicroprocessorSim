@@ -19,7 +19,7 @@ int main() {
 		program_names.push_back(program_name);
 		
 	}
-	cout << "Would you like to print the entire instruction memories at the end of the program? \n Enter y for yes, any other key for no \n\n";
+	cout << "Would you like to print the entire instruction memories at the end of the program? \n Enter y for yes, any other key for no \n";
 	cin >> printI;
 	cout << "Would you like to print the entire data memory at the end of the program? \n Enter y for yes, any other key for no \n";
 	cin >> printD;

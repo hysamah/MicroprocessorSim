@@ -11,7 +11,7 @@ int HLT::excute(int pc, DataMem& dm, bool& running) //function to excute HLT ins
 {
     running = 0;
     cout << "Excution stopped at instuction #"<<pc<<endl;
-    return pc + 1;
+    return pc;
 }
 
 void HLT::print() //function to print the instruction

@@ -18,14 +18,12 @@ void JPA::print() //function to print the instruction
 
 int JPA::excute(int pc, DataMem &data, bool& running) //execution function for JPA
 {
-	//data.lock(op[0].getValue());
 	
 	int jpc;
 	jpc = op[0].getValue();
 
 	cout << "Instruction #"<<pc << " will jump to position " <<jpc<<endl;
 	
-	//data.unlock(op[0].getValue());
 
 	return jpc;
 }

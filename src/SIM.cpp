@@ -21,7 +21,7 @@ SIM::SIM(const vector<string>& programs) //contructor that initialises the instr
 void SIM::RunProgram(int i) //running the simulator 
 {
 	Instruction *Inst = nullptr;
-	while (this->run) //keep the program running while the value run is true (ie; no HLT instruction called)
+	while (this->run[i]) //keep the program running while the value run is true (ie; no HLT instruction called)
 	{ 
 		Inst = this->instMem[i].getInst(pc[i]);  //get intruction to excute
 		this->pc[i] = Inst->excute(this->pc[i], this->dataMem, this->run[i]);  //execute instruction and update pc
