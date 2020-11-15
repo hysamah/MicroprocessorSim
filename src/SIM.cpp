@@ -24,6 +24,7 @@ void SIM::RunProgram(int i) //running the simulator
 	while (this->run[i]) //keep the program running while the value run is true (ie; no HLT instruction called)
 	{ 
 		Inst = this->instMem[i].getInst(pc[i]);  //get intruction to excute
+		cout << "Thread #" << i << endl;
 		this->pc[i] = Inst->excute(this->pc[i], this->dataMem, this->run[i]);  //execute instruction and update pc
 		cout << "Done excuting instruction" << endl<< endl; 
 	}
