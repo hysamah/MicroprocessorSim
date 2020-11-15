@@ -8,6 +8,8 @@
         "ostream": "cpp",
         "iosfwd": "cpp",
         "system_error": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "set": "cpp",
+        "xtree": "cpp"
     }
 }

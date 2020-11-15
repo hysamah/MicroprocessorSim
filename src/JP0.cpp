@@ -13,19 +13,12 @@ JP0::JP0(vector<Operand> rs) //construction and parameter validation
 int JP0::excute(int pc, DataMem& dm, bool& running)//execution function for JP0
 {
 
-	set<int, greater<int> >::iterator itr;
-	for (itr = locks.begin(); itr != locks.end(); ++itr)
-		dm.lock(*itr);
 
 	int a0 = dm.getVar(op[0].getValue());
     int a1 = op[1].getValue();
 
     string decision = (a0 == 0)? "jump" : "not jump";
     cout << "Instruction #"<<pc << " will " <<decision<<" to position " <<a1<<endl;
-    
-
-	for (itr = locks.begin(); itr != locks.end(); ++itr)
-		dm.unlock(*itr);
 
     return (a0 == 0)? a1 : pc + 1;
 }

@@ -3,11 +3,11 @@
 SIM::SIM(const vector<string>& programs) //contructor that initialises the instruction memory and Program Counter 
 {
 	this->programs_num = programs.size();
-	this->instMem = new InstMem[programs.size()];
-	this->run = new bool[programs.size()];
-	this->pc = new int[programs.size()];
-	this->threads = new thread[programs.size()];
-	for (int i = 0; i < programs.size(); i++) {
+	this->instMem = new InstMem[this->programs_num];
+	this->run = new bool[this->programs_num];
+	this->pc = new int[this->programs_num];
+	this->threads = new thread[this->programs_num];
+	for (int i = 0; i < this->programs_num; i++) {
 		string program_name = programs[i];
 		this->file.open(program_name);
 		this->run[i] = 1;
@@ -25,7 +25,9 @@ void SIM::RunProgram(int i) //running the simulator
 	{ 
 		Inst = this->instMem[i].getInst(pc[i]);  //get intruction to excute
 		cout << "Thread #" << i << endl;
+		Inst->lockOperands(this->dataMem);
 		this->pc[i] = Inst->excute(this->pc[i], this->dataMem, this->run[i]);  //execute instruction and update pc
+		Inst->unlockOperands(this->dataMem);
 		cout << "Done excuting instruction" << endl<< endl; 
 	}
 }

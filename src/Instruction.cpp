@@ -11,7 +11,13 @@ Instruction::Instruction(vector<Operand> _op)
 	}
 }
 
+void Instruction::lockOperands(DataMem& DM){
+    for(auto i : this->locks) DM.lock(i);
+}
 
+void Instruction::unlockOperands(DataMem& DM){
+    for(auto i : this->locks) DM.unlock(i);
+}
 Instruction::~Instruction(){
 
 }

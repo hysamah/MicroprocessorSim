@@ -19,11 +19,6 @@ void MUL::print() //function to print the instruction
 
 int MUL::excute(int pc, DataMem &data, bool& running) //execution function for MUL
 {
-
-	set<int, greater<int> >::iterator itr;
-	for (itr = locks.begin(); itr != locks.end(); ++itr)
-		data.lock(*itr);
-
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
 	data.setVar(op.at(2).getValue(), a0*a1 );
@@ -32,9 +27,6 @@ int MUL::excute(int pc, DataMem &data, bool& running) //execution function for M
 	" value: "<< a0<< " with the data at address " <<op.at(1).getValue()<<
 	" value: "<< a1<< " Result = " << a0 * a1<< " saved at " <<op.at(2).getValue()<<endl;
 
-
-	for (itr = locks.begin(); itr != locks.end(); ++itr)
-		data.unlock(*itr);
 	return pc + 1;
 }
 
