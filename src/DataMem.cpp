@@ -28,7 +28,7 @@ void DataMem::setVar(int var, int val) //function to assign a certain value to a
 
 int DataMem::getVar(int var)  //getter function to retrieve a certain value from the data memory
 {
-	if (!this->Init[var]) throw runtime_error("The variable " + to_string(var) + " is not initialized");
+	//if (!this->Init[var]) throw runtime_error("The variable " + to_string(var) + " is not initialized");
     cout << "retrieving from location "<< var<< " the value "<< this->Data[var]<<endl;
 	return (this->Data[var]);
 }

@@ -46,7 +46,7 @@ ifstream & operator >> (ifstream& file, InstMem& instMem)  //function to read, p
 	string data;
 	getline(file, data);
 
-
+	if (data == "") return file;
 	int l = 0, r;
     vector<string> list;
     while(l < data.length() && data[l] == ' ' || data[l] == '\t')l++;

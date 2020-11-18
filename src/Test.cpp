@@ -2,8 +2,24 @@
 #include <iomanip>
 #include <fstream>
 #include<string>
+#include <Windows.h>
 #include "SIM.h"
 using namespace std;
+
+void read_directory(const std::string& name, vector <string>& v)
+{
+	std::string pattern(name);
+	pattern.append("\\*");
+	WIN32_FIND_DATA data;
+	HANDLE hFind;
+	if ((hFind = FindFirstFile(pattern.c_str(), &data)) != INVALID_HANDLE_VALUE) {
+		do {
+			if(data.cFileName[0]!='.' && data.cFileName[0]!='..')
+				v.push_back(name +'\\'+ data.cFileName);
+		} while (FindNextFile(hFind, &data) != 0);
+		FindClose(hFind);
+	}
+}
 
 int main() {
 
@@ -11,14 +27,20 @@ int main() {
 	string program_name;
 	vector <string> program_names;
 	int nPrograms;
-	cout << "Please enter the number of programs to run: \n";
+
+	string DirName;
+	cout << "Enter the testing directory\n";
+	cin >> DirName;
+	read_directory(DirName, program_names);
+
+	/*cout << "Please enter the number of programs to run: \n";
 	cin >> nPrograms;
 	for (int i = 0; i < nPrograms; i++) {
 		cout << "Please enter test program name: \n";
 		cin >> program_name;
 		program_names.push_back(program_name);
 		
-	}
+	}*/
 	cout << "Would you like to print the entire instruction memories at the end of the program? \n Enter y for yes, any other key for no \n";
 	cin >> printI;
 	cout << "Would you like to print the entire data memory at the end of the program? \n Enter y for yes, any other key for no \n";
