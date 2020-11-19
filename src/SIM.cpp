@@ -7,6 +7,7 @@ SIM::SIM(const vector<string>& programs) //contructor that initialises the instr
 	this->run = new bool[this->programs_num];
 	this->pc = new int[this->programs_num];
 	this->threads = new thread[this->programs_num];
+	this->programs = programs;
 	for (int i = 0; i < this->programs_num; i++) {
 		string program_name = programs[i];
 		this->file.open(program_name);
@@ -44,7 +45,11 @@ void SIM::Run() {
 void SIM::printInstructions() //Print then whole Instruction Memory 
 {
 	for (int i = 0; i < this->programs_num; i++) {
+		cout << "Instruction memory for " << this->programs[i] 
+			<< " executed on thread #" << i << endl;
 		this->instMem[i].print();
+
+		cout << endl << endl;
 	}
 
 }
