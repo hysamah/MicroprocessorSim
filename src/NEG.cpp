@@ -10,21 +10,24 @@ NEG::NEG(vector<Operand> rs): Instruction(rs) //construction and parameter valid
 
 void NEG::print() //function to print the instruction
 {
-
-	cout << "NEG ";
+	stringstream stream;
+	stream << "NEG ";
 	for (Operand o : op)
-		cout << o.getValue() << " ";
-	cout << endl;
+		stream << o.getValue() << " ";
+	stream << endl;
+	cout << stream.str();
 }
 
 int NEG::excute(int pc, DataMem &data, bool& running) //execution function for NEG
 {
+	stringstream stream;
 	int a0 = data.getVar(op.at(0).getValue());
 	data.setVar(op.at(1).getValue(), -1*a0);
 	
-	cout <<  "Instruction #"<<pc << " set the data at address " <<op.at(1).getValue()<<
+	stream <<  "Instruction #"<<pc << " set the data at address " <<op.at(1).getValue()<<
 	" value: "<< a0 << " to the negation: "<< -1*a0 << endl;
 
+	cout << stream.str();
 	return pc + 1;
 }
 

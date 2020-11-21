@@ -10,22 +10,26 @@ MUL::MUL(vector <Operand> rs): Instruction(rs) //construction and parameter vali
 
 void MUL::print() //function to print the instruction
 {
-
-	cout << "MUL ";
+	stringstream stream;
+	stream << "MUL ";
 	for (Operand o : op)
-		cout << o.getValue() << " ";
-	cout << endl;
+		stream << o.getValue() << " ";
+	stream << endl;
+
+	cout << stream.str();
 }
 
 int MUL::excute(int pc, DataMem &data, bool& running) //execution function for MUL
 {
+	stringstream stream;
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
 	data.setVar(op.at(2).getValue(), a0*a1 );
 	
-	cout << "Instruction #"<<pc << " multiplied the data at address " <<op.at(0).getValue()<<
+	stream << "Instruction #"<<pc << " multiplied the data at address " <<op.at(0).getValue()<<
 	" value: "<< a0<< " with the data at address " <<op.at(1).getValue()<<
 	" value: "<< a1<< " Result = " << a0 * a1<< " saved at " <<op.at(2).getValue()<<endl;
+	cout << stream.str();
 
 	return pc + 1;
 }

@@ -13,8 +13,27 @@ SIM::SIM(const vector<string>& programs) //contructor that initialises the instr
 		this->file.open(program_name);
 		this->run[i] = 1;
 		this->pc[i] = 0;
+		try {
 		while (!this->file.eof())
 			this->file >> instMem[i];
+		}
+		catch (runtime_error& ex) {
+			cerr << "Runtime Error!!!\n" << ex.what() << endl;
+			exit(-1);
+		}
+		catch (invalid_argument& ex) {
+			cerr << "Invalid Argument Error!!!\n" << ex.what() << endl;
+			exit(-1);
+		}
+		catch (overflow_error& ex) {
+			cerr << "Overflow Error!!!\n" << ex.what() << endl;
+			exit(-1);
+		}
+		catch (...) {
+			cerr << "Exception Error!!!\n" << endl;
+			exit(-1);
+		}
+
 		this->file.close();
 	}
 }
@@ -25,11 +44,34 @@ void SIM::RunProgram(int i) //running the simulator
 	while (this->run[i]) //keep the program running while the value run is true (ie; no HLT instruction called)
 	{ 
 		Inst = this->instMem[i].getInst(pc[i]);  //get intruction to excute
-		cout << "Thread #" << i << endl;
+		stringstream stream;
+		stream << "Thread #" << i << endl;
+		cout << stream.str();
+		try{
 		Inst->lockOperands(this->dataMem);
 		this->pc[i] = Inst->excute(this->pc[i], this->dataMem, this->run[i]);  //execute instruction and update pc
 		Inst->unlockOperands(this->dataMem);
-		cout << "Done excuting instruction" << endl<< endl; 
+		}
+		catch (runtime_error& ex) {
+			cerr << "Runtime Error!!!\n" << ex.what() << endl;
+			exit(-1);
+		}
+		catch (invalid_argument& ex) {
+			cerr << "Invalid Argument Error!!!\n" << ex.what() << endl;
+			exit(-1);
+		}
+		catch (overflow_error& ex) {
+			cerr << "Overflow Error!!!\n" << ex.what() << endl;
+			exit(-1);
+		}
+		catch (...) {
+			cerr << "Exception Error!!!\n" << endl;
+			exit(-1);
+		}
+
+		stream.clear();
+		stream << "Done excuting instruction" << endl<< endl; 
+		cout << stream.str();
 	}
 }
 

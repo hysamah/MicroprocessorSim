@@ -9,16 +9,21 @@ HLT::HLT(vector<Operand> pars)  //construction and parameter validation
 
 int HLT::excute(int pc, DataMem& dm, bool& running) //function to excute HLT instruction, making the value of "running" into false to stop the program
 {
+    stringstream stream;
+
     running = 0;
-    cout << "Excution stopped at instuction #"<<pc<<endl;
+    stream << "Excution stopped at instuction #"<<pc<<endl;
+    cout << stream.str();
     return pc;
 }
 
 void HLT::print() //function to print the instruction
 {
+    stringstream stream;
 
-	cout << "HLT ";
-	cout << endl;
+    stream << "HLT ";
+	stream << endl;
+    cout << stream.str();
 }
 HLT::~HLT(){
 }

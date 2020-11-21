@@ -12,8 +12,10 @@ InstMem::InstMem()
 
 Instruction* InstMem::getInst(int p) //getter function to retrieve an innstruction from a certain PC
 {
+	stringstream stream;
 	if (p < this->allocated){
-		cout << "Getting instruction #" << p<<endl;
+		stream << "Getting instruction #" << p<<endl;
+		cout << stream.str();
 		return Inst[p];
 	}
 	else throw runtime_error("Invalid PC value");  //if PC value is out of the allocated range, throw this exception
@@ -29,21 +31,23 @@ void InstMem::allocate(Instruction& newInst) //allocating instructions at the bo
 
 void InstMem::print() //printing function that prints all intructions in the memory
 {
-	cout << "-----------------------------------------\n";
-	cout << "** Instructions in Instruction Memory ** \nPC ==> Instruction\n";
+	stringstream stream;
+	stream << "-----------------------------------------\n";
+	stream << "** Instructions in Instruction Memory ** \nPC ==> Instruction\n";
 	for (int i = 0; i < this->allocated; i++)
 	{
-		cout << i << " ==> ";
+		stream << i << " ==> ";
 		Inst[i]->print();
 	}
-	cout << "-----------------------------------------\n";
-	
+	stream << "-----------------------------------------\n";
+	cout << stream.str();
 }
 
 
 ifstream & operator >> (ifstream& file, InstMem& instMem)  //function to read, parse, and allocate instructions
 {
 	string data;
+	stringstream stream;
 	getline(file, data);
 
 	if (data == "") return file;
@@ -117,7 +121,8 @@ ifstream & operator >> (ifstream& file, InstMem& instMem)  //function to read, p
 		}
 
 		default:
-			cout << "invalid instruction" << endl;
+			stream << "invalid instruction" << endl;
+			cout << stream.str();
 			break;
 		}
 		instMem.allocate(*InstPtr);
@@ -129,7 +134,7 @@ ifstream & operator >> (ifstream& file, InstMem& instMem)  //function to read, p
 }
 
 InstMem::~InstMem() {
-	cout << "Deleting the instruction memory" <<endl;
+	cout << "Deleting the instruction memory\n";
 	for (int i = 0; i < this->allocated; i++) {
 		delete this->Inst[i];
 	}

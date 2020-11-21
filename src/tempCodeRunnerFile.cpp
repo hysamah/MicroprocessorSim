@@ -1,13 +1,7 @@
-class GeometricObject{
-
-    int id;
-
-public:
-
-    GeometricObject(int iId) : id(iId) {}
-
-    virtual float getArea() {};
-
-    float getId() {return id;} 
-
-};
+//#include "safe_stream.h"
+//
+//int main(){
+//    safe_ostream safe_cout(std::cout);
+//    safe_cout << "hello" ;
+//    return 0;
+//}

@@ -1,4 +1,7 @@
 #pragma once
+#ifndef INSTMEM_H
+#define INSTMEM_H
+
 #include "Instruction.h"
 #include"ADD.h"
 #include "ASI.h"
@@ -11,9 +14,6 @@
 #include <fstream>
 #include <iostream>
 using namespace std;
-
-#ifndef INSTMEM_H
-#define INSTMEM_H
 
 
 enum names  //enumurating intruction names to instantiate correct instructions and add them to the Instruction memory

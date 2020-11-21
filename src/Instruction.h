@@ -1,9 +1,7 @@
 #pragma once
 #ifndef INSTRUCTION_H
 #define INSTRUCTION_H
-
-
-
+#include <sstream>
 #include <vector>
 #include <set>
 #include "Operand.h"
@@ -22,6 +20,7 @@ public:
 	~Instruction ();
 	
 protected:
+	//stringstream stream;
 	vector <Operand> op;
 	set<int, greater<int>> locks;
 

@@ -11,22 +11,30 @@ ASI::ASI(vector<Operand> rs) //construction and parameter validation
 
 int ASI::excute(int pc, DataMem& dm, bool& running) //execution function for ASI
 {
+    stringstream stream;
 
+    stream.clear();
 	int a0 = op[0].getValue();
     dm.setVar(op[1].getValue(), a0);
 
-    cout << "Instruction #"<<pc << " set the data at address " <<op[1].getValue()<<
+    stream << "Instruction #"<<pc << " set the data at address " <<op[1].getValue()<<
 	 " with the data =  " <<a0<<endl;
 
+    cout << stream.str();
+    stream.clear();
     return pc + 1;
 }
 void ASI::print() //function to print the instruction
 {
+    stringstream stream;
 
-	cout << "ASI ";
+    stream.clear();
+	stream << "ASI ";
 	for (Operand o : op)
-		cout << o.getValue() << " ";
-	cout << endl;
+		stream << o.getValue() << " ";
+	stream << endl;
+    cout << stream.str();
+    stream.clear();
 }
 
 ASI::~ASI(){
