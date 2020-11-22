@@ -11,7 +11,7 @@ class JPA : public Instruction
 {
 public:
 	JPA(vector <Operand>);
-	int excute(int, DataMem &, bool& running);
+	int excute(int, DataMem &, bool& running, int);
 	stringstream print();
 	~JPA();
 

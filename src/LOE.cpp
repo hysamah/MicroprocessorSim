@@ -20,13 +20,14 @@ stringstream LOE::print() //function to print the instruction
 
 }
 
-int LOE::excute(int pc, DataMem &data, bool& running) //execution function for LOE
+int LOE::excute(int pc, DataMem &data, bool& running, int thrd) //execution function for LOE
 {
 	stringstream stream;
 	int a0 = data.getVar(op.at(0).getValue());
 	int a1 = data.getVar(op.at(1).getValue());
 	data.setVar(op.at(2).getValue(), a0<=a1 );
 
+	stream << "Thread #" << thrd << endl;
 	stream << "Instruction #"<<pc << " set the data at address " <<op.at(2).getValue()<<
 	" with 1 if the data at address " <<op.at(0).getValue()<<
 	" value: "<< a0<< " is less than the data at address " << op.at(1).getValue()<< 

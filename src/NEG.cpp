@@ -19,12 +19,13 @@ stringstream NEG::print() //function to print the instruction
 	return stream;
 }
 
-int NEG::excute(int pc, DataMem &data, bool& running) //execution function for NEG
+int NEG::excute(int pc, DataMem &data, bool& running, int thrd) //execution function for NEG
 {
 	stringstream stream;
 	int a0 = data.getVar(op.at(0).getValue());
 	data.setVar(op.at(1).getValue(), -1*a0);
 	
+	stream << "Thread #" << thrd << endl;
 	stream <<  "Instruction #"<<pc << " set the data at address " <<op.at(1).getValue()<<
 	" value: "<< a0 << " to the negation: "<< -1*a0 << endl;
 

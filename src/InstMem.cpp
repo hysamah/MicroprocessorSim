@@ -10,10 +10,11 @@ InstMem::InstMem()
 	this->allocated = 0; //the initial number of instructions=0
 }
 
-Instruction* InstMem::getInst(int p) //getter function to retrieve an innstruction from a certain PC
+Instruction* InstMem::getInst(int p, int thrd) //getter function to retrieve an innstruction from a certain PC
 {
 	stringstream stream;
 	if (p < this->allocated){
+		stream << "Thread #" << thrd << endl;
 		stream << "Getting instruction #" << p<<endl;
 		cout << stream.str();
 		return Inst[p];

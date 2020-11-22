@@ -11,7 +11,7 @@ public:
     LOE(vector<Operand>);
     //Sets the third address to 1 if the first address value is less
     //than or equal the second address
-    int excute(int, DataMem &, bool& running);
+    int excute(int, DataMem &, bool& running, int);
 	stringstream print();
     ~LOE();
 

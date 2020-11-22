@@ -43,13 +43,13 @@ void SIM::RunProgram(int i) //running the simulator
 	Instruction *Inst = nullptr;
 	while (this->run[i]) //keep the program running while the value run is true (ie; no HLT instruction called)
 	{ 
-		Inst = this->instMem[i].getInst(pc[i]);  //get intruction to excute
+		Inst = this->instMem[i].getInst(pc[i], i);  //get intruction to excute
 		stringstream stream;
-		stream << "Thread #" << i << endl;
-		cout << stream.str();
+		//stream << "Thread #" << i << endl;
+		//cout << stream.str();
 		try{
 		Inst->lockOperands(this->dataMem);
-		this->pc[i] = Inst->excute(this->pc[i], this->dataMem, this->run[i]);  //execute instruction and update pc
+		this->pc[i] = Inst->excute(this->pc[i], this->dataMem, this->run[i], i);  //execute instruction and update pc
 		Inst->unlockOperands(this->dataMem);
 		}
 		catch (runtime_error& ex) {

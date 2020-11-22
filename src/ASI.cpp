@@ -9,7 +9,7 @@ ASI::ASI(vector<Operand> rs) //construction and parameter validation
 }
 
 
-int ASI::excute(int pc, DataMem& dm, bool& running) //execution function for ASI
+int ASI::excute(int pc, DataMem& dm, bool& running, int thrd) //execution function for ASI
 {
     stringstream stream;
 
@@ -17,6 +17,7 @@ int ASI::excute(int pc, DataMem& dm, bool& running) //execution function for ASI
 	int a0 = op[0].getValue();
     dm.setVar(op[1].getValue(), a0);
 
+	stream << "Thread #" << thrd << endl;
     stream << "Instruction #"<<pc << " set the data at address " <<op[1].getValue()<<
 	 " with the data =  " <<a0<<endl;
 

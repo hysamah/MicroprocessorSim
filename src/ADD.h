@@ -12,7 +12,7 @@ class ADD : public Instruction
 {
 public:
 	ADD(vector <Operand>);
-	int excute(int, DataMem&, bool& running);
+	int excute(int, DataMem&, bool& running, int);
 	stringstream print();
 	~ADD();
 

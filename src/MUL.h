@@ -10,7 +10,7 @@ class MUL : public Instruction
 {
 public:
 	MUL(vector <Operand>);
-	int excute(int, DataMem &, bool& running);
+	int excute(int, DataMem &, bool& running, int);
 	stringstream print();
 	~MUL();
 

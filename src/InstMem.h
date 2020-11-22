@@ -24,7 +24,7 @@ class InstMem  //class for the instruction memory
 {
 public:
 	InstMem(); //class constructor 
-	Instruction *getInst(int);  //getter for the instruction from the memory
+	Instruction *getInst(int, int );  //getter for the instruction from the memory
 	void allocate(Instruction&); //function to allocate new instructions into the memory 
 	friend ifstream & operator >> (ifstream &, InstMem&);  //operator to read instructions from a file directly into the InstMem
 	void print(); //print function for the instruction memory

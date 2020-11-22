@@ -10,13 +10,13 @@ JP0::JP0(vector<Operand> rs) //construction and parameter validation
 }
 
 
-int JP0::excute(int pc, DataMem& dm, bool& running)//execution function for JP0
+int JP0::excute(int pc, DataMem& dm, bool& running, int thrd)//execution function for JP0
 {
     stringstream stream;
 
 	int a0 = dm.getVar(op[0].getValue());
     int a1 = op[1].getValue();
-
+	stream << "Thread #" << thrd << endl;
     string decision = (a0 == 0)? "jump" : "not jump";
     stream << "Instruction #"<<pc << " will " <<decision<<" to position " <<a1<<endl;
     cout << stream.str();

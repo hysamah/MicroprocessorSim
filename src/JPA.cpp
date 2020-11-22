@@ -19,12 +19,13 @@ stringstream JPA::print() //function to print the instruction
 
 }
 
-int JPA::excute(int pc, DataMem &data, bool& running) //execution function for JPA
+int JPA::excute(int pc, DataMem &data, bool& running, int thrd) //execution function for JPA
 {
 	stringstream stream;
 	int jpc;
 	jpc = op[0].getValue();
 
+	stream << "Thread #" << thrd << endl;
 	stream << "Instruction #"<<pc << " will jump to position " <<jpc<<endl;
 	
 	cout << stream.str();
