@@ -6,7 +6,7 @@
 #include "SIM.h"
 #include <filesystem>
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 using namespace std;
 
@@ -77,6 +77,6 @@ int main() {
 	if (printD == "y")
 		simulation.printData();
 
-	system("pause");
+	//system("pause");
 	return 0;
 }

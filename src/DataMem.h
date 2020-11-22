@@ -1,4 +1,6 @@
 #pragma once
+#ifndef DATAMEM_H
+#define DATAMEM_H
 #include <mutex>
 #include <string>
 #include <sstream>
@@ -6,8 +8,6 @@
 
 using namespace std;
 
-#ifndef DATAMEM_H
-#define DATAMEM_H
 
 
 class DataMem  //data memory class
