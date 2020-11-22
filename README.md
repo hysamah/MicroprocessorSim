@@ -3,6 +3,7 @@ A microprocessor simulator using C++ and a heavily object oriented implementatio
 
 # Usage
 complie & run "test.cpp"
+it needs c++17 to compile
 
 ```bash
 g++  *.cpp -o sim.exe
