@@ -37,7 +37,7 @@ void InstMem::print() //printing function that prints all intructions in the mem
 	for (int i = 0; i < this->allocated; i++)
 	{
 		stream << i << " ==> ";
-		Inst[i]->print();
+		stream<<Inst[i]->print().str();
 	}
 	stream << "-----------------------------------------\n";
 	cout << stream.str();

@@ -8,14 +8,16 @@ LOE::LOE(vector <Operand> rs): Instruction(rs) //construction and parameter vali
         throw invalid_argument("Invalid parameter list, all paramaters in LOE must be variables"); 
 }
 
-void LOE::print() //function to print the instruction
+stringstream LOE::print() //function to print the instruction
 {
 	stringstream stream;
 	stream << "LOE ";
 	for (Operand o : op)
 		stream << o.getValue() << " ";
 	stream << endl;
-	cout << stream.str();
+//	cout << stream.str();
+	return stream;
+
 }
 
 int LOE::excute(int pc, DataMem &data, bool& running) //execution function for LOE

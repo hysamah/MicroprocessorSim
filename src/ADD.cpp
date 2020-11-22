@@ -8,7 +8,7 @@ ADD::ADD(vector <Operand> rs): Instruction(rs) //construction and parameter vali
         throw invalid_argument("Invalid parameter list, all paramaters in ADD must be variables"); 
 }
 
-void ADD::print() //function to print the instruction
+stringstream ADD::print() //function to print the instruction
 {
 	stringstream stream;
 	stream << "ADD ";
@@ -16,8 +16,10 @@ void ADD::print() //function to print the instruction
 		stream << o.getValue() << " ";
 	stream << endl;
 
-	cout << stream.str();
-	stream.clear();
+	//cout << stream.str();
+	//stream.clear();
+	return stream;
+
 }
 
 int ADD::excute(int pc, DataMem &data, bool& running) //execution function for add
@@ -33,7 +35,7 @@ int ADD::excute(int pc, DataMem &data, bool& running) //execution function for a
 	stream << "Instruction #"<<pc << " added the data at address " <<op.at(0).getValue()<<
 	" value: "<< a0<< " with the data at address " <<op.at(1).getValue()<<
 	" value: "<< a1<< " Result = " << a0 + a1<< " saved at " <<a2<<endl;
-
+	stream << "Done excuting instruction" << endl << endl;
 	cout << stream.str();
 	stream.clear();
 	

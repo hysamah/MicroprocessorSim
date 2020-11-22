@@ -8,7 +8,7 @@ MUL::MUL(vector <Operand> rs): Instruction(rs) //construction and parameter vali
         throw invalid_argument("Invalid parameter list, all paramaters in MUL must be variables");    
 }
 
-void MUL::print() //function to print the instruction
+stringstream MUL::print() //function to print the instruction
 {
 	stringstream stream;
 	stream << "MUL ";
@@ -16,7 +16,9 @@ void MUL::print() //function to print the instruction
 		stream << o.getValue() << " ";
 	stream << endl;
 
-	cout << stream.str();
+//	cout << stream.str();
+	return stream;
+
 }
 
 int MUL::excute(int pc, DataMem &data, bool& running) //execution function for MUL

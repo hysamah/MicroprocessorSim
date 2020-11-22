@@ -24,7 +24,7 @@ int ASI::excute(int pc, DataMem& dm, bool& running) //execution function for ASI
     stream.clear();
     return pc + 1;
 }
-void ASI::print() //function to print the instruction
+stringstream ASI::print() //function to print the instruction
 {
     stringstream stream;
 
@@ -33,8 +33,10 @@ void ASI::print() //function to print the instruction
 	for (Operand o : op)
 		stream << o.getValue() << " ";
 	stream << endl;
-    cout << stream.str();
+//    cout << stream.str();
     stream.clear();
+	return stream;
+
 }
 
 ASI::~ASI(){

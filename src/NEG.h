@@ -11,7 +11,7 @@ class NEG : public Instruction
 public:
 	NEG(vector<Operand>);
 	int excute(int, DataMem &, bool& running);
-	void print();
+	stringstream print();
 	~NEG();
 
 private:

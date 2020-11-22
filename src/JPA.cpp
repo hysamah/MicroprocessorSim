@@ -7,14 +7,16 @@ JPA::JPA(vector <Operand> rs): Instruction(rs) //construction and parameter vali
         throw runtime_error("Invalid parameter list, JPA instruction takes exactly 1 parameter");
 }
 
-void JPA::print() //function to print the instruction
+stringstream JPA::print() //function to print the instruction
 {
 	stringstream stream;
 	stream << "JPA ";
 	for (Operand o : op)
 		stream << o.getValue() << " ";
 	stream << endl;
-	cout << stream.str();
+//	cout << stream.str();
+	return stream;
+
 }
 
 int JPA::excute(int pc, DataMem &data, bool& running) //execution function for JPA

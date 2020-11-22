@@ -17,13 +17,15 @@ int HLT::excute(int pc, DataMem& dm, bool& running) //function to excute HLT ins
     return pc;
 }
 
-void HLT::print() //function to print the instruction
+stringstream HLT::print() //function to print the instruction
 {
     stringstream stream;
 
     stream << "HLT ";
 	stream << endl;
-    cout << stream.str();
+//    cout << stream.str();
+	return stream;
+
 }
 HLT::~HLT(){
 }

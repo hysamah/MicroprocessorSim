@@ -6,7 +6,7 @@
 #include "SIM.h"
 #include <filesystem>
 
-namespace fs = std::filesystem;
+namespace fs = std::experimental::filesystem;
 
 using namespace std;
 
@@ -22,7 +22,7 @@ void read_directory(const std::string& name, vector <string>& paths)
 	if ((hFind = FindFirstFile(pattern.c_str(), &data)) != INVALID_HANDLE_VALUE) {
 		do {
 			if(data.cFileName[0]!='.' && data.cFileName[0]!='..')
-				v.push_back(name +'\\'+ data.cFileName);
+				paths.push_back(name +'\\'+ data.cFileName);
 		} while (FindNextFile(hFind, &data) != 0);
 		FindClose(hFind);
 	}*/

@@ -69,9 +69,9 @@ void SIM::RunProgram(int i) //running the simulator
 			exit(-1);
 		}
 
-		stream.clear();
+		/*stream.clear();
 		stream << "Done excuting instruction" << endl<< endl; 
-		cout << stream.str();
+		cout << stream.str();*/
 	}
 }
 

@@ -13,7 +13,7 @@ class Instruction  //base class for all instructions
 {
 public:
 	Instruction(vector<Operand>); //constructor for intruction
-	virtual void print()=0; //virtual function for printing the instruction 
+	virtual stringstream print()=0; //virtual function for printing the instruction 
 	virtual int excute(int, DataMem&, bool& )=0; //virtual function for excuting the instruction 
 	void lockOperands(DataMem&);
     void unlockOperands(DataMem&);

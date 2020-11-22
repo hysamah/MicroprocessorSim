@@ -23,7 +23,7 @@ int JP0::excute(int pc, DataMem& dm, bool& running)//execution function for JP0
     return (a0 == 0)? a1 : pc + 1;
 }
 
-void JP0::print() //function to print the instruction
+stringstream JP0::print() //function to print the instruction
 {
     stringstream stream;
 	stream << "JP0 ";
@@ -31,7 +31,9 @@ void JP0::print() //function to print the instruction
 		stream << o.getValue() << " ";
 	stream << endl;
     
-    cout << stream.str();
+    //cout << stream.str();
+	return stream;
+
 }
 
 JP0::~JP0(){

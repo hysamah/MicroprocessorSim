@@ -13,7 +13,7 @@ class ADD : public Instruction
 public:
 	ADD(vector <Operand>);
 	int excute(int, DataMem&, bool& running);
-	void print();
+	stringstream print();
 	~ADD();
 
 private:

@@ -8,14 +8,15 @@ NEG::NEG(vector<Operand> rs): Instruction(rs) //construction and parameter valid
         throw invalid_argument("Invalid parameter list, both paramaters in NEG must be variables");
 }
 
-void NEG::print() //function to print the instruction
+stringstream NEG::print() //function to print the instruction
 {
 	stringstream stream;
 	stream << "NEG ";
 	for (Operand o : op)
 		stream << o.getValue() << " ";
 	stream << endl;
-	cout << stream.str();
+//	cout << stream.str();
+	return stream;
 }
 
 int NEG::excute(int pc, DataMem &data, bool& running) //execution function for NEG

@@ -12,7 +12,7 @@ class JPA : public Instruction
 public:
 	JPA(vector <Operand>);
 	int excute(int, DataMem &, bool& running);
-	void print();
+	stringstream print();
 	~JPA();
 
 private:

@@ -11,7 +11,7 @@ class MUL : public Instruction
 public:
 	MUL(vector <Operand>);
 	int excute(int, DataMem &, bool& running);
-	void print();
+	stringstream print();
 	~MUL();
 
 private:
