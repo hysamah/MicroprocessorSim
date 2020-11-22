@@ -37,7 +37,6 @@ int ADD::excute(int pc, DataMem &data, bool& running) //execution function for a
 	" value: "<< a1<< " Result = " << a0 + a1<< " saved at " <<a2<<endl;
 	stream << "Done excuting instruction" << endl << endl;
 	cout << stream.str();
-	stream.clear();
 	
 	return pc + 1;
 }
